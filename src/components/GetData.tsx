@@ -9,8 +9,10 @@ const useGet = (key:string, url: string) => {
   return useQuery({
     queryKey: [key],
     queryFn: () => axios.get(`${url}`).then((res) => res.data),
-    //refetchOnWindowFocus: 'always' ,
+    refetchOnWindowFocus: false ,
     //staleTime: 10
+    gcTime: 6000,
+    retry: 3
     //refetchInterval: 5000
   })
 }
