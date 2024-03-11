@@ -13,13 +13,12 @@ const usePost = (url: string) => {
     const mutate = async(payload:any) => {
         setIsLoading(true)
         try{
-            let res = await axios.post(url, payload)
-
-            if(res.status == 201){
-                setIsSuccess(true)
-               
-            }
-            let data = res.data
+            let response = await axios.post(url, payload)
+            if (response.statusText !== 'OK') {
+                throw new Error('Request failed with status ' + response.status);
+              }
+            setIsSuccess(true)
+            let data = response.data
             setResponse(data)
         }
         catch(error){
