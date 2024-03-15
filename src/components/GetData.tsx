@@ -12,8 +12,8 @@ const useGet = (key:string, url: string) => {
     refetchOnWindowFocus: false ,
     //staleTime: 10
     gcTime: 6000,
-    retry: 3
-    //refetchInterval: 5000
+    retry: 3,
+    //refetchInterval: 3000
   })
 }
 

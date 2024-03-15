@@ -25,6 +25,9 @@ const PostData = () => {
             onSuccess(data) {
                 queryClient.setQueryData(['posts'], (oldData: any) => [...oldData, data])
             },
+            onError(error){
+                console.log(error)
+            }
         })
     }
     if(isSuccess){

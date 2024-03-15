@@ -14,9 +14,7 @@ const usePost = (url: string) => {
         setIsLoading(true)
         try{
             let response = await axios.post(url, payload)
-            if (response.statusText !== 'OK') {
-                throw new Error('Request failed with status ' + response.status);
-              }
+            //console.log(response, 'RESPONSE')
             setIsSuccess(true)
             let data = response.data
             setResponse(data)
